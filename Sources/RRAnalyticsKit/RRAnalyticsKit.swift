@@ -4,7 +4,6 @@ import SwiftUI
 public struct RRAnalyticsKit {
     public static func initialise(with appID: String) {
         let configuration = TelemetryManagerConfiguration(appID: appID)
-        
         TelemetryManager.initialize(with: configuration)
     }
     
