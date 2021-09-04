@@ -35,9 +35,9 @@ public enum RRAnalyticsPoint: CustomStringConvertible {
     public var description: String {
         switch self {
             case .onAppear(let view):
-                return "Appeared: \(view)"
+                return "Appeared: \(view)".uppercased()
             case .onDisappear(let view):
-                return "Disappeared: \(view)"
+                return "Disappeared: \(view)".uppercased()
             case .onClickView(let view): return "Tapped \(view) view".uppercased()
             case .onClickButton(let button): return "Tapped \(button) button".uppercased()
         }
