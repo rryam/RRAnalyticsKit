@@ -3,13 +3,9 @@ import SwiftUI
 
 public struct RRAnalyticsKit {
     public static func initialise(with appID: String) {
-        let configuration = TelemetryManagerConfiguration(
-            appID: appID)
-        configuration.sendSignalsInDebugConfiguration = true
+        let configuration = TelemetryManagerConfiguration(appID: appID)
         
         TelemetryManager.initialize(with: configuration)
-        
-        TelemetryManager.send("applicationDidFinishLaunching")
     }
     
     public static func publish(event: String, metadata: [String: String]? = nil) {
@@ -22,6 +18,7 @@ public struct RRAnalyticsKit {
     
     public static func publish(event: RRAnalyticsPoint, metadata: [String: String]? = nil) {
         if let metadata = metadata {
+            print(metadata)
             TelemetryManager.send(event.description, with: metadata)
         } else {
             TelemetryManager.send(event.description)
