@@ -15,7 +15,7 @@ let metadata = ["Color Model": String(describing: Self.self),
 RRAnalyticsKit.publish(event: .onClickButton(ButtonText.evaluate), metadata: metadata)
 ```
 
-For a SwiftUI's lifecycle, you can use `View.sendViewData(with:onAppear:onDisappear:)` - 
+For a SwiftUI view's lifecycle, you can use `View.sendViewData(with:onAppear:onDisappear:)` - 
 
 ```swift
 struct ContentView: View {
@@ -26,7 +26,8 @@ struct ContentView: View {
             Text("RRAnalyticsKit")
         }
         .fullScreenCover(isPresented: $showAnalyticsView) { 
-            AnalyticsView().sendViewData(with: ["Parent View": String(describing: Self.self)], onAppear: true, onDisappear: true)
+            AnalyticsView()
+                .sendViewData(with: ["Parent View": String(describing: Self.self)], onAppear: true, onDisappear: true)
         }
     }
 }
